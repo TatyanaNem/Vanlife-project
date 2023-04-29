@@ -1,4 +1,5 @@
 .vans {
+    max-width: 600px;
     padding: 0 27px;
     margin: 0 auto;
 }

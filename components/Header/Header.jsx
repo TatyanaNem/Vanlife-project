@@ -1,15 +1,17 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import styles from './Header.module.css';
+import Navigation from "../Navigation/Navigation";
 
 const Header = () => {
+  const names = ['host', 'about', 'vans']
+
   return (
     <header className={styles.header}>
+      <div className={styles.container}>
         <Link className={styles.logo} to='/'>#VANLIFE</Link>
-        <nav className={styles.nav}>
-          <Link to='/about' className={styles.link}>About</Link>
-          <Link to='/vans' className={styles.link}>Vans</Link>
-        </nav>
+        <Navigation names={names} />
+      </div>
     </header>
   );
 };

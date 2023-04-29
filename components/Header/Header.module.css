@@ -1,0 +1,22 @@
+.header {
+    font-family: 'Inter', sans-serif;
+    min-height: 110px;
+    padding: 30px 26px;
+    box-shadow: 1px 1px 10px #161616;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 548px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 40px;
+    text-decoration: none;
+    color: #000000;
+}

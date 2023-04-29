@@ -1,0 +1,22 @@
+.footer {
+    min-height: 75px;
+    text-align: center;
+    padding: 30px 26px;
+    background-color: #252525;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 548px;
+    margin: 0 auto;
+}
+
+.footer span {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 23px;
+    color: #AAAAAA;
+}

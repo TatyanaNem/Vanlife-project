@@ -1,6 +1,10 @@
 .van {
-    width: 230px;
+    width: 250px;
     margin: 0 auto;
+}
+
+.van a {
+    text-decoration: none;
 }
 
 .van img {
@@ -9,6 +13,7 @@
     margin-bottom: 10px;
     object-fit: cover;
     border-radius: 5px;
+    box-shadow: 1px 1px 10px #161616;
 }
 
 .vanDescription {
@@ -49,6 +54,7 @@
     background-color: #FFEAD0;
     color: #4D4D4D;
     transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 1px 1px 10px #161616;
 }
 
 .vanType:hover {

@@ -1,3 +1,8 @@
+.home {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.86));
+    min-height: 100%;
+}
+
 .container {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)), url("../../assets/home-hero.jpg") no-repeat center center;
     -webkit-background-size: cover;
@@ -6,7 +11,9 @@
     background-size: cover;
     min-height: 350px;
     color: white;
+    margin: auto;
     padding: 45px 23px;
+    max-width: 548px;
 }
 
 .container h1 {

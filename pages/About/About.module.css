@@ -1,9 +1,14 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .aboutImage {
     max-width: 100%;
 }
 
 .pageContent {
-    padding-inline: 23px;
+    padding: 0 27px;
     color: #161616;
     margin-bottom: 55px;
 }
@@ -17,6 +22,7 @@
 }
 
 .sloganBlock {
+    margin-bottom: 54px;
     background-color: #FFCC8D;
     color: #161616;
     padding-inline: 32px;
