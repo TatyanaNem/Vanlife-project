@@ -1,0 +1,47 @@
+.container {
+    padding-top: 61px;
+}
+
+.mainBlock {
+    background-color: #ffffff;
+    padding: 26px;
+    border-radius: 6px;
+}
+
+.vanDetails {
+    display: grid;
+    grid-template-columns: 160px auto;
+    grid-template-rows: 1fr;
+    gap: 32px;
+    padding: 18px 24px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.vanDetails img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.description {
+
+}
+
+.name {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 27px;
+    color: #161616;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #161616;
+}
+
+.price span {
+    font-weight: 400;
+}

@@ -36,3 +36,11 @@
 .link:hover::after {
     opacity: 1;
 }
+
+.active {
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #161616;
+}

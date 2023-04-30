@@ -2,15 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import styles from './VanDetails.module.css';
 import classNames from "classnames";
+import BackLink from "../../../components/BackLink/BackLink";
+import TypeButton from "../../../components/TypeButton/TypeButton";
 
 const VanDetails = () => {
   const params = useParams()
   const [van, setVan] = useState({})
-  const typeClasses = classNames(styles.vanType, {
-    [styles.simple]: van.type === 'simple',
-    [styles.luxury]: van.type === 'luxury',
-    [styles.rugged]: van.type === 'rugged'
-  })
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -24,10 +21,11 @@ const VanDetails = () => {
 
   return (
     <div className={styles.container}>
+      <BackLink />
       {van ? (
         <div className={styles.vanDetail}>
           <img src={van.imageUrl} alt={van.name}/>
-          <span className={typeClasses}>{van.type}</span>
+          <TypeButton typeName={van.type}/>
           <h2>{van.name}</h2>
           <p className={styles.vanPrice}><span>${van.price}</span>/day</p>
           <p>{van.description}</p>

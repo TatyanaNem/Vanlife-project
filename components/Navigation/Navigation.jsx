@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import styles from './Navigation.module.css';
 
 const Navigation = (props) => {
@@ -9,7 +9,7 @@ const Navigation = (props) => {
     <nav className={styles.nav}>
       {links.map((name, index) => {
         return (
-          <Link to={`${name}`} className={styles.link} key={index}>{name.slice(0,1).toUpperCase() + name.slice(1)}</Link>
+          <NavLink to={`${name}`} className={({isActive}) => isActive ? styles.active : styles.link} key={index}>{name.slice(0,1).toUpperCase() + name.slice(1)}</NavLink>
         )
       })}
     </nav>

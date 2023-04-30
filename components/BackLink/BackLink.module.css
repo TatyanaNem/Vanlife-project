@@ -1,0 +1,32 @@
+.backLink {
+    display: inline-block;
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 41px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    text-decoration-line: underline;
+    color: #201F1D;
+}
+
+.backLink:hover {
+    opacity: 0.8;
+}
+
+.backLink::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 10px;
+    background-image: url("../../assets/arrow.svg");
+    background-position: left center;
+}
+
+.backLink:hover::after {
+    left: 0;
+    width: 14px;
+}
