@@ -4,7 +4,7 @@ import styles from './BackLink.module.css';
 
 const BackLink = () => {
   return (
-    <Link to='' className={styles.backLink}>
+    <Link to='..' relative='path' className={styles.backLink}>
       Back to all vans
     </Link>
   );

@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Header from "./components/Header/Header";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import "./server";
 import Vans from "./pages/Vans/Vans";
-import Footer from "./components/Footer/Footer";
 import VanDetails from "./pages/Vans/VanDetails/VanDetails";
 import Layout from "./components/Layout/Layout";
 import HostLayout from "./pages/Host/HostLayout";
@@ -26,12 +24,13 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path='host' element={<HostLayout/>}>
-            <Route index element={<Dashboard/>}/>
+            <Route index element={<Navigate to='dashboard'/>}/>
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='income' element={<Income/>}/>
             <Route path='vans' element={<HostVans/>}/>
             <Route path='vans/:id' element={<HostVanDetails/>}>
-              <Route index end element={<Details/>}/>
+              <Route index element={<Navigate to='details'/>}/>
+              <Route path='details' element={<Details/>}/>
               <Route path='pricing' element={<Pricing/>}/>
               <Route path='photos' element={<Photos/>}/>
             </Route>

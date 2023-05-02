@@ -1,10 +1,12 @@
 import React from 'react';
+import {useOutletContext} from "react-router-dom";
 
 const Pricing = () => {
+  const [van] = useOutletContext();
   return (
-    <div>
-      This is pricing page
-    </div>
+    <h4>
+      ${van.price}<span>/day</span>
+    </h4>
   );
 };
 

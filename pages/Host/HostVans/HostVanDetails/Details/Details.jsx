@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from "../HostVanDetails.module.css";
 import { useOutletContext } from "react-router-dom";
+import styles from './Details.module.css';
 
 const Details = () => {
   const [van] = useOutletContext();
   return (
-    <div>
-      <p className={styles.name}>Name: <span>{van.name}</span></p>
-      <p>Category: <span>{van.type}</span></p>
-      <p>Description: <span>{van.description}</span></p>
-      <p>Visibility: <span>Public</span></p>
-    </div>
+    <section>
+      <h4>Name: <span>{van.name}</span></h4>
+      <h4>Category: <span>{van.type}</span></h4>
+      <h4>Description: <span>{van.description}</span></h4>
+      <h4>Visibility: <span>Public</span></h4>
+    </section>
   );
 };
 

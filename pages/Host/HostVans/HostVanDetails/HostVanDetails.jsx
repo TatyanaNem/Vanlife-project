@@ -15,12 +15,16 @@ const HostVanDetails = () => {
       .then(data => setCurrentVan(data.vans))
   }, [])
 
+  if(!currentVan) {
+    return <h1>Loading...</h1>
+  }
+
   return (
     <div className={styles.container}>
       <BackLink />
       <div className={styles.mainBlock}>
         <div className={styles.vanDetails}>
-          <img src={currentVan.imageUrl} alt={`Photo of ${currentVan.name}`}/>
+          <img src={currentVan.imageUrl} width={160} height={160} alt={`Photo of ${currentVan.name}`}/>
           <div className={styles.description}>
             <TypeButton typeName={currentVan.type}/>
             <p className={styles.name}>{currentVan.name}</p>
