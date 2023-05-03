@@ -23,7 +23,7 @@ h3 {
     border-radius: 6px;
 }
 
-li:not(:last-child) {
+.list li:not(:last-child) {
     margin-bottom: 15px;
 }
 
