@@ -2,10 +2,11 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import styles from './BackLink.module.css';
 
-const BackLink = () => {
+const BackLink = ({settings, type}) => {
+  console.log(settings)
   return (
-    <Link to='..' relative='path' className={styles.backLink}>
-      Back to all vans
+    <Link to={`..?${settings}`} relative="path" className={styles.backLink}>
+      &larr; <span>Back to {type} vans</span>
     </Link>
   );
 };

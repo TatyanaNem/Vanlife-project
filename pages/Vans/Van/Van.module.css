@@ -69,7 +69,8 @@
     color: #FFEAD0;
 }
 
-.simple {
+.simple,
+.simpleSelected {
     background-color: #E17654;
     color: #FFEAD0;
 }

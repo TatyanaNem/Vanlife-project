@@ -12,7 +12,7 @@ const HostVans = () => {
 
   const hostVansElements = vans.map(van => {
     return <li key={van.id}>
-      <Link to={`/host/vans/${van.id}`} className={styles.item}>
+      <Link to={van.id} className={styles.item}>
         <img src={van.imageUrl} alt={`Photo of ${van.name}`}/>
         <div className={styles.description}>
           <p className={styles.name}>{van.name}</p>

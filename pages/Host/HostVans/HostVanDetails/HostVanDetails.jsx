@@ -3,11 +3,14 @@ import styles from './HostVanDetails.module.css';
 import BackLink from "../../../../components/BackLink/BackLink";
 import Navigation from "../../../../components/Navigation/Navigation";
 import TypeButton from "../../../../components/TypeButton/TypeButton";
-import {Outlet, useParams} from "react-router-dom";
+import {Outlet, useLocation, useParams} from "react-router-dom";
 
 const HostVanDetails = () => {
   const {id} = useParams()
-  const [currentVan, setCurrentVan] = useState({})
+  const location = useLocation()
+  const settings = location.state?.search || ""
+
+  const [currentVan, setCurrentVan] = useState(null)
   const names = ['details', 'pricing', 'photos']
   useEffect(() => {
     fetch(`/api/host/vans/${id}`)
@@ -21,7 +24,7 @@ const HostVanDetails = () => {
 
   return (
     <div className={styles.container}>
-      <BackLink />
+      <BackLink settings={settings} type={'all'}/>
       <div className={styles.mainBlock}>
         <div className={styles.vanDetails}>
           <img src={currentVan.imageUrl} width={160} height={160} alt={`Photo of ${currentVan.name}`}/>

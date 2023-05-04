@@ -16,6 +16,7 @@ import HostVanDetails from "./pages/Host/HostVans/HostVanDetails/HostVanDetails"
 import Details from "./pages/Host/HostVans/HostVanDetails/Details/Details";
 import Photos from "./pages/Host/HostVans/HostVanDetails/Photos/Photos";
 import Pricing from "./pages/Host/HostVans/HostVanDetails/Pricing/Pricing";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
             <Route path='income' element={<Income/>}/>
             <Route path='vans' element={<HostVans/>}/>
             <Route path='vans/:id' element={<HostVanDetails/>}>
-              <Route index element={<Navigate to='details'/>}/>
+              <Route index element={<Details/>}/>
               <Route path='details' element={<Details/>}/>
               <Route path='pricing' element={<Pricing/>}/>
               <Route path='photos' element={<Photos/>}/>
@@ -39,6 +40,7 @@ function App() {
           <Route path='about' element={<About/>}/>
           <Route path='vans' element={<Vans/>}/>
           <Route path='vans/:id' element={<VanDetails/>}/>
+          <Route path='*' element={<NotFound />}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import styles from './VanDetails.module.css';
-import classNames from "classnames";
 import BackLink from "../../../components/BackLink/BackLink";
 import TypeButton from "../../../components/TypeButton/TypeButton";
 
 const VanDetails = () => {
   const params = useParams()
-  const [van, setVan] = useState({})
+  const [van, setVan] = useState(null)
+  const location = useLocation()
+  const settings = location.state?.search || ""
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -21,7 +22,7 @@ const VanDetails = () => {
 
   return (
     <div className={styles.container}>
-      <BackLink />
+      <BackLink settings={settings} type={van?.type || 'all'}/>
       {van ? (
         <div className={styles.vanDetail}>
           <img src={van.imageUrl} alt={van.name}/>

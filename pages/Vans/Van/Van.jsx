@@ -3,7 +3,7 @@ import styles from './Van.module.css';
 import classNames from "classnames";
 import {Link} from "react-router-dom";
 
-const Van = ({van}) => {
+const Van = ({van, searchParams}) => {
   const typeClasses = classNames(styles.vanType, {
     [styles.simple]: van.type === 'simple',
     [styles.luxury]: van.type === 'luxury',
@@ -11,7 +11,10 @@ const Van = ({van}) => {
   })
   return (
     <li className={styles.van} key={van.id}>
-      <Link to={`/vans/${van.id}`}>
+      <Link
+        to={van.id}
+        state={{search: searchParams.toString()}}
+      >
         <img src={van.imageUrl} alt={van.name}/>
         <div className={styles.vanDescription}>
         <span className={styles.vanName}>
