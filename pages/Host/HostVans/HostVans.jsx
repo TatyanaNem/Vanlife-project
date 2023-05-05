@@ -1,13 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import styles from './HostVans.module.css';
 import {Link} from "react-router-dom";
+import {getHostVans} from "../../../API/api";
 
 const HostVans = () => {
   const [vans, setVans] = useState([])
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
-    fetch('/api/host/vans')
-      .then(res => res.json())
-      .then(data => setVans(data.vans))
+    async function loadHostVans() {
+      setLoading(true)
+      const data = await getHostVans()
+      setLoading(false)
+      setVans(data)
+    }
+
+    loadHostVans()
   }, [])
 
   const hostVansElements = vans.map(van => {
@@ -22,17 +29,15 @@ const HostVans = () => {
     </li>
   })
 
+  if (loading) return <h1>Loading...</h1>
+
   return (
     <>
       <h3>Your listed vans</h3>
 
-      {
-          vans.length > 0
-            ? <ul className={styles.list}>
-                {hostVansElements}
-              </ul>
-            : (<h2>Loading...</h2>)
-        }
+      <ul className={styles.list}>
+        {hostVansElements}
+      </ul>
     </>
 
   );
