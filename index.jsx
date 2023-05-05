@@ -12,7 +12,7 @@ import {
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import "./server";
-import Vans from "./pages/Vans/Vans";
+import Vans, {loader as vansLoader} from "./pages/Vans/Vans";
 import VanDetails from "./pages/Vans/VanDetails/VanDetails";
 import Layout from "./components/Layout/Layout";
 import HostLayout from "./pages/Host/HostLayout";
@@ -25,6 +25,7 @@ import Details from "./pages/Host/HostVans/HostVanDetails/Details/Details";
 import Photos from "./pages/Host/HostVans/HostVanDetails/Photos/Photos";
 import Pricing from "./pages/Host/HostVans/HostVanDetails/Pricing/Pricing";
 import NotFound from "./pages/NotFound/NotFound";
+import Error from "./components/Error/Error";
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -44,7 +45,12 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path='reviews' element={<Reviews/>}/>
     </Route>
     <Route path='about' element={<About/>}/>
-    <Route path='vans' element={<Vans/>}/>
+    <Route
+      path='vans'
+      element={<Vans/>}
+      errorElement={<Error />}
+      loader={vansLoader}
+    />
     <Route path='vans/:id' element={<VanDetails/>}/>
     <Route path='*' element={<NotFound />}/>
   </Route>

@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Vans.module.css';
 import Van from "./Van/Van";
-import {useSearchParams} from "react-router-dom";
+import {useLoaderData, useSearchParams} from "react-router-dom";
 import classNames from "classnames";
 import {getVans} from "../../API/api";
 
+export const loader = () => {
+  return getVans()
+}
+
 const Vans = () => {
-  const [vans, setVans] = useState([])
-  const [loading, setLoading] = useState(false)
+  const vans = useLoaderData()
 
   const [searchParams, setSearchParams] = useSearchParams()
   const handleFilterChange = (key, value) => {
@@ -21,28 +24,10 @@ const Vans = () => {
     })
   }
 
-    useEffect(() => {
-      async function loadVans() {
-        setLoading(true)
-        try {
-          const data = await getVans()
-          setVans(data)
-
-        } catch(err) {
-          console.log("There was an error!")
-          console.log(err)
-        }
-        setLoading(false)
-      }
-      loadVans()
-    }, [])
-
   const typeFilter = searchParams.get('type')
   const displayedVans = typeFilter
     ? vans.filter(v => v.type.toLowerCase() === typeFilter)
     : vans
-
-  if(loading) return <div className={styles.vans}><h1>Loading...</h1></div>
 
     return (
       <div className={styles.vans}>

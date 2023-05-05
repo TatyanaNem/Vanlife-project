@@ -1,0 +1,13 @@
+.errorBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 45px 23px;
+    max-width: 548px;
+    min-height: 100%;
+}
+
+.errorBlock h1 {
+    text-align: center;
+}

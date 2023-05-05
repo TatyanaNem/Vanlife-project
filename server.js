@@ -20,7 +20,7 @@ createServer({
         this.logging = false
 
         this.get("/vans", (schema, request) => {
-            // new Response(400, {}, {error: "Error fetching data"})
+            //return new Error("Error fetching data")
             return schema.vans.all()
         })
 

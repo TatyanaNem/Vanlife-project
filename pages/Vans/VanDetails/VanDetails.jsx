@@ -14,7 +14,6 @@ const VanDetails = () => {
     fetch(`/api/vans/${params.id}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.vans)
         setVan(data.vans)
       })
   }, [params.id])
