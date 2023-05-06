@@ -1,28 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Login.module.css';
-import {Link, useLoaderData} from "react-router-dom";
+import {Form, Link, useLoaderData, useNavigate} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {loginUser} from "../../common/API/api";
 
 export const loader = ({request}) => {
   return new URL(request.url).searchParams.get('message')
 }
 
+export const action = async ({request}) => {
+  const formData = await request.formData()
+  const email = formData.get('email')
+  const password = formData.get('password')
+  try {
+    const data = await loginUser({email, password})
+    console.log(data)
+  } catch (e) {
+    toast.error(e.message)
+  }
+}
+
 const Login = () => {
-  const [loginFormData, setLoginFormData] = useState({email:'', password: ''})
-  const handleChange = (e) => {
-    const {name, value} = e.target
-    setLoginFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(loginFormData)
-  }
-
+  const [status, setStatus] = useState('idle')
   const message = useLoaderData()
 
   useEffect(() => {
@@ -32,23 +32,21 @@ const Login = () => {
   return (
     <div className={styles.loginContainer}>
       <h1>Sign in to your account</h1>
-      <form className={styles.loginForm} onSubmit={handleSubmit}>
+      <Form className={styles.loginForm} method='post'>
         <input
           name="email"
-          onChange={handleChange}
           type="email"
           placeholder="Email address"
-          value={loginFormData.email}
         />
         <input
           name="password"
-          onChange={handleChange}
           type="password"
           placeholder="Password"
-          value={loginFormData.password}
         />
-        <button>Log in</button>
-      </form>
+        <button disabled={status === 'submitting'}>
+          {status === 'submitting' ? 'Logging in...' : 'Log in'}
+        </button>
+      </Form>
       <p>Don’t have an account? <Link className={styles.registrationLink} to='registration'>Create one now</Link></p>
       <ToastContainer
         position="bottom-center"

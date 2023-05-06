@@ -26,12 +26,12 @@ import Photos from "./pages/Host/HostVans/HostVanDetails/Photos/Photos";
 import Pricing from "./pages/Host/HostVans/HostVanDetails/Pricing/Pricing";
 import NotFound from "./pages/NotFound/NotFound";
 import Error from "./components/Error/Error";
-import Login, {loader as loginLoader} from "./pages/Login/Login";
+import Login, {loader as loginLoader, action as loginAction} from "./pages/Login/Login";
 import {requireAuth} from "./common/utils/requireAuth";
 
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path='/' element={<Layout/>} errorElement={<Error />}>
+  <Route path='/' element={<Layout/>}>
     <Route index element={<Home/>}/>
     <Route
       path='host'
@@ -75,6 +75,8 @@ const router = createBrowserRouter(createRoutesFromElements(
       path='login'
       element={<Login/>}
       loader={loginLoader}
+      action={loginAction}
+      errorElement={<Error />}
     />
     <Route
       path='vans'

@@ -61,6 +61,12 @@
     transform: translate(1px, 1px);
 }
 
+.loginForm button:disabled {
+    background-color: #fcdbb2;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
 .loginContainer p {
     font-weight: 700;
     font-size: 16px;
