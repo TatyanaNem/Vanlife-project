@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import styles from './Vans.module.css';
 import Van from "./Van/Van";
 import {useLoaderData, useSearchParams} from "react-router-dom";
-import classNames from "classnames";
-import {getVans} from "../../API/api";
+import {getVans} from "../../common/API/api";
+import {requireAuth} from "../../common/utils/requireAuth";
 
-export const loader = () => {
+export const loader = async () => {
+  await requireAuth()
   return getVans()
 }
 

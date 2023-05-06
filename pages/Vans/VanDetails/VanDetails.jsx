@@ -1,28 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useLoaderData, useLocation, useParams} from "react-router-dom";
 import styles from './VanDetails.module.css';
 import BackLink from "../../../components/BackLink/BackLink";
 import TypeButton from "../../../components/TypeButton/TypeButton";
+import {getVans} from "../../../common/API/api";
+import {requireAuth} from "../../../common/utils/requireAuth";
+
+export const loader = async ({params}) => {
+  await requireAuth()
+  return getVans(params.id)
+}
 
 const VanDetails = () => {
-  const params = useParams()
-  const [van, setVan] = useState(null)
+  const van = useLoaderData()
   const location = useLocation()
   const settings = location.state?.search || ""
-
-  useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then(res => res.json())
-      .then(data => {
-        setVan(data.vans)
-      })
-  }, [params.id])
-
 
   return (
     <div className={styles.container}>
       <BackLink settings={settings} type={van?.type || 'all'}/>
-      {van ? (
         <div className={styles.vanDetail}>
           <img src={van.imageUrl} alt={van.name}/>
           <TypeButton typeName={van.type}/>
@@ -31,7 +27,6 @@ const VanDetails = () => {
           <p>{van.description}</p>
           <button className={styles.linkButton}>Rent this van</button>
         </div>
-      ) : <h2>Loading...</h2>}
     </div>
   );
 };

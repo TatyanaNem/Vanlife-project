@@ -1,17 +1,18 @@
 .backLink {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 41px;
+    display: block;
     font-weight: 500;
     font-size: 16px;
     line-height: 23px;
     color: #201F1D;
 }
 
-.backLink span {
+.backLinkText {
+    display: inline-block;
+    margin-bottom: 41px;
     text-decoration-line: underline;
+    color: #201F1D;
 }
 
-.backLink:hover {
+.backLinkText:hover {
     opacity: 0.8;
 }

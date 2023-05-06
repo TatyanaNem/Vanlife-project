@@ -1,21 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import styles from './HostVans.module.css';
-import {Link} from "react-router-dom";
-import {getHostVans} from "../../../API/api";
+import {Link, useLoaderData} from "react-router-dom";
+import {getHostVans} from "../../../common/API/api";
+import {requireAuth} from "../../../common/utils/requireAuth";
+
+export const loader = async () => {
+  await requireAuth()
+  return getHostVans()
+}
 
 const HostVans = () => {
-  const [vans, setVans] = useState([])
+  const vans = useLoaderData()
   const [loading, setLoading] = useState(false)
-  useEffect(() => {
-    async function loadHostVans() {
-      setLoading(true)
-      const data = await getHostVans()
-      setLoading(false)
-      setVans(data)
-    }
-
-    loadHostVans()
-  }, [])
 
   const hostVansElements = vans.map(van => {
     return <li key={van.id}>
@@ -32,13 +28,13 @@ const HostVans = () => {
   if (loading) return <h1>Loading...</h1>
 
   return (
-    <>
+    <section>
       <h3>Your listed vans</h3>
 
       <ul className={styles.list}>
         {hostVansElements}
       </ul>
-    </>
+    </section>
 
   );
 };

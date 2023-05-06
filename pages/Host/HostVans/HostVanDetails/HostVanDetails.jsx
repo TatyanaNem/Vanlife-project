@@ -3,24 +3,21 @@ import styles from './HostVanDetails.module.css';
 import BackLink from "../../../../components/BackLink/BackLink";
 import Navigation from "../../../../components/Navigation/Navigation";
 import TypeButton from "../../../../components/TypeButton/TypeButton";
-import {Outlet, useLocation, useParams} from "react-router-dom";
+import {Outlet, useLoaderData, useLocation} from "react-router-dom";
+import {getHostVans} from "../../../../common/API/api";
+import {requireAuth} from "../../../../common/utils/requireAuth";
+
+export const loader = async ({params}) => {
+  await requireAuth()
+  return getHostVans(params.id)
+}
 
 const HostVanDetails = () => {
-  const {id} = useParams()
+  const currentVan = useLoaderData()
   const location = useLocation()
   const settings = location.state?.search || ""
 
-  const [currentVan, setCurrentVan] = useState(null)
   const names = ['details', 'pricing', 'photos']
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then(res => res.json())
-      .then(data => setCurrentVan(data.vans))
-  }, [])
-
-  if(!currentVan) {
-    return <h1>Loading...</h1>
-  }
 
   return (
     <div className={styles.container}>
