@@ -26,10 +26,11 @@ import Photos from "./pages/Host/HostVans/HostVanDetails/Photos/Photos";
 import Pricing from "./pages/Host/HostVans/HostVanDetails/Pricing/Pricing";
 import NotFound from "./pages/NotFound/NotFound";
 import Error from "./components/Error/Error";
+import Login from "./pages/Login/Login";
 
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path='/' element={<Layout/>}>
+  <Route path='/' element={<Layout/>} errorElement={<Error />}>
     <Route index element={<Home/>}/>
     <Route path='host' element={<HostLayout/>}>
       <Route index element={<Navigate to='dashboard'/>}/>
@@ -45,10 +46,10 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path='reviews' element={<Reviews/>}/>
     </Route>
     <Route path='about' element={<About/>}/>
+    <Route path='login' element={<Login/>}/>
     <Route
       path='vans'
       element={<Vans/>}
-      errorElement={<Error />}
       loader={vansLoader}
     />
     <Route path='vans/:id' element={<VanDetails/>}/>

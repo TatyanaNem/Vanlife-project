@@ -1,0 +1,79 @@
+.loginContainer {
+    margin: auto;
+    padding: 45px 23px;
+    max-width: 548px;
+}
+
+.loginContainer h1 {
+    margin-top: 52px;
+    margin-bottom: 48px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #161616;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 47px;
+}
+
+.loginForm input {
+    height: 42px;
+    background: #FFFFFF;
+    padding: 9px 13px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #AAAAAA;
+}
+
+.loginForm input[type='email'] {
+    border-radius: 6px 6px 0 0;
+    border-bottom: none;
+}
+
+.loginForm input[type='password'] {
+    border-radius: 0 0 6px 6px;
+}
+
+.loginForm button {
+    display: inline-block;
+    margin-top: 22px;
+    text-align: center;
+    background-color: #FF8C38;
+    border: none;
+    width: 100%;
+    padding-block: .75rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform .1s ease-in-out;
+}
+
+.loginForm button:hover {
+    box-shadow: 1px 1px 5px #161616;
+}
+
+.loginForm button:active {
+    transform: translate(1px, 1px);
+}
+
+.loginContainer p {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #161616;
+}
+
+.registrationLink {
+    color: #FF8C38;
+    transition: transform .1s ease-in-out;
+}
+
+.registrationLink:hover {
+    text-decoration: underline;
+}
