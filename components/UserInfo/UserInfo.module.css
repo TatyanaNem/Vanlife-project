@@ -1,0 +1,25 @@
+.userInfo {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.avatar::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    color: red;
+}

@@ -7,8 +7,8 @@ import {Outlet, useLoaderData, useLocation} from "react-router-dom";
 import {getHostVans} from "../../../../common/API/api";
 import {requireAuth} from "../../../../common/utils/requireAuth";
 
-export const loader = async ({params}) => {
-  await requireAuth()
+export const loader = async ({params, request}) => {
+  await requireAuth(request)
   return getHostVans(params.id)
 }
 

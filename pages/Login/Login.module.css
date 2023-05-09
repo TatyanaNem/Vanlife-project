@@ -62,7 +62,7 @@
 }
 
 .loginForm button:disabled {
-    background-color: #fcdbb2;
+    background-color: #aaaaaa;
     box-shadow: none;
     cursor: not-allowed;
 }
@@ -82,4 +82,9 @@
 
 .registrationLink:hover {
     text-decoration: underline;
+}
+
+.error {
+    text-align: center;
+    color: red;
 }

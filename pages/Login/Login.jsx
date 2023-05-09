@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Login.module.css';
-import {Form, Link, useLoaderData, useNavigate} from "react-router-dom";
+import {Form, Link, redirect, useActionData, useLoaderData, useNavigate, useNavigation} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import {loginUser} from "../../common/API/api";
@@ -13,16 +13,18 @@ export const action = async ({request}) => {
   const formData = await request.formData()
   const email = formData.get('email')
   const password = formData.get('password')
+  const pathname = new URL(request.url).searchParams.get('redirectTo') || '/host'
   try {
     const data = await loginUser({email, password})
-    console.log(data)
+    localStorage.setItem('isLoggedIn', JSON.stringify(true))
+    return redirect(pathname)
   } catch (e) {
     toast.error(e.message)
   }
 }
 
 const Login = () => {
-  const [status, setStatus] = useState('idle')
+  const navigation = useNavigation()
   const message = useLoaderData()
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const Login = () => {
   return (
     <div className={styles.loginContainer}>
       <h1>Sign in to your account</h1>
-      <Form className={styles.loginForm} method='post'>
+      <Form className={styles.loginForm} method='post' replace>
         <input
           name="email"
           type="email"
@@ -43,8 +45,8 @@ const Login = () => {
           type="password"
           placeholder="Password"
         />
-        <button disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Logging in...' : 'Log in'}
+        <button disabled={navigation.state === 'submitting'}>
+          {navigation.state === 'submitting' ? 'Logging in...' : 'Log in'}
         </button>
       </Form>
       <p>Don’t have an account? <Link className={styles.registrationLink} to='registration'>Create one now</Link></p>
