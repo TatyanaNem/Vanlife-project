@@ -9,7 +9,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    min-height: 350px;
+    min-height: 100%;
     color: white;
     margin: auto;
     padding: 45px 23px;

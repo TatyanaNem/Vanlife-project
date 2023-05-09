@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Vans.module.css';
 import Van from "./Van/Van";
-import {useLoaderData, useSearchParams} from "react-router-dom";
+import {Await, defer, useLoaderData, useSearchParams} from "react-router-dom";
 import {getVans} from "../../common/API/api";
-import {requireAuth} from "../../common/utils/requireAuth";
+import Loading from "../../components/Loading/Loading";
 
 export const loader = async () => {
-  await requireAuth()
-  return getVans()
+  return defer({vans: getVans()})
 }
 
 const Vans = () => {
-  const vans = useLoaderData()
+  const vansPromise = useLoaderData()
 
   const [searchParams, setSearchParams] = useSearchParams()
   const handleFilterChange = (key, value) => {
@@ -26,13 +25,14 @@ const Vans = () => {
   }
 
   const typeFilter = searchParams.get('type')
-  const displayedVans = typeFilter
-    ? vans.filter(v => v.type.toLowerCase() === typeFilter)
-    : vans
+
+  function renderVansElements(vans) {
+    const displayedVans = typeFilter
+      ? vans.filter(v => v.type.toLowerCase() === typeFilter)
+      : vans
 
     return (
-      <div className={styles.vans}>
-        <h2>Explore our van options</h2>
+      <>
         <ul className={styles.filterBlock}>
           <li>
             <button onClick={() => handleFilterChange('type', 'simple')}
@@ -56,7 +56,7 @@ const Vans = () => {
             </button>
           </li>
           {typeFilter && <button onClick={() => handleFilterChange('type', null)}
-                  className={styles.clearButton}
+                                 className={styles.clearButton}
           >Clear filters
           </button>}
         </ul>
@@ -65,8 +65,20 @@ const Vans = () => {
             {displayedVans.map(van => <Van key={van.id} van={van} searchParams={searchParams}/>)}
           </ul>
         </div>
-      </div>
+      </>
     )
-  };
+  }
 
-  export default Vans;
+  return (
+    <div className={styles.vans}>
+      <h2>Explore our van options</h2>
+      <React.Suspense fallback={<Loading text='vans. Please wait ⌛'/>}>
+        <Await resolve={vansPromise.vans}>
+          {renderVansElements}
+        </Await>
+      </React.Suspense>
+    </div>
+  )
+};
+
+export default Vans;

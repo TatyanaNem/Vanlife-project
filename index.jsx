@@ -56,11 +56,13 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route
         path='vans'
         element={<HostVans/>}
+        errorElement={<Error />}
         loader={hostVansLoader}
       />
       <Route
         path='vans/:id'
         element={<HostVanDetails/>}
+        errorElement={<Error />}
         loader={hostVanDetailsLoader}
       >
         <Route index element={<Details/>}/>
@@ -81,11 +83,13 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route
       path='vans'
       element={<Vans/>}
+      errorElement={<Error />}
       loader={vansLoader}
     />
     <Route
       path='vans/:id'
       element={<VanDetails/>}
+      errorElement={<Error />}
       loader={vanDetailsLoader}
     />
     <Route path='*' element={<NotFound />}/>

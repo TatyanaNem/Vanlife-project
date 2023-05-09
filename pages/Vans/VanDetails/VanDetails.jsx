@@ -1,24 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import {useLoaderData, useLocation, useParams} from "react-router-dom";
+import {Await, defer, useLoaderData, useLocation, useParams} from "react-router-dom";
 import styles from './VanDetails.module.css';
 import BackLink from "../../../components/BackLink/BackLink";
 import TypeButton from "../../../components/TypeButton/TypeButton";
 import {getVans} from "../../../common/API/api";
 import {requireAuth} from "../../../common/utils/requireAuth";
+import Loading from "../../../components/Loading/Loading";
 
-export const loader = async ({params}) => {
-  await requireAuth()
-  return getVans(params.id)
+export const loader = async ({params, request}) => {
+  await requireAuth(request)
+  return defer({van: getVans(params.id)})
 }
 
 const VanDetails = () => {
-  const van = useLoaderData()
+  const dataPromise = useLoaderData()
   const location = useLocation()
   const settings = location.state?.search || ""
 
-  return (
-    <div className={styles.container}>
-      <BackLink settings={settings} type={van?.type || 'all'}/>
+  function renderVanDetails(van) {
+    return (
+      <>
+        <BackLink settings={settings} type={van?.type || 'all'}/>
         <div className={styles.vanDetail}>
           <img src={van.imageUrl} alt={van.name}/>
           <TypeButton typeName={van.type}/>
@@ -27,6 +29,17 @@ const VanDetails = () => {
           <p>{van.description}</p>
           <button className={styles.linkButton}>Rent this van</button>
         </div>
+      </>
+    )
+  }
+
+  return (
+    <div className={styles.container}>
+      <React.Suspense fallback={<Loading text='van details. Please wait ⌛'/>}>
+        <Await resolve={dataPromise.van}>
+          {renderVanDetails}
+        </Await>
+      </React.Suspense>
     </div>
   );
 };
