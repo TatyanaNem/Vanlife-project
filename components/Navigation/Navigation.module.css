@@ -2,6 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 13px;
+    max-width: 548px;
+    margin: 0 auto;
+    padding-bottom: 45px;
 }
 
 .link {
