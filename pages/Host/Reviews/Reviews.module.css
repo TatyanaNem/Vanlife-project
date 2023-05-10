@@ -1,0 +1,63 @@
+.hostReviews {
+    padding-inline: 26px;
+    color: #161616;
+}
+
+.hostReviews .topText {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.topText > h2 {
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0 20px;
+}
+
+.topText > p {
+    margin: 0;
+    color: #4d4d4d;
+}
+
+.topText > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.hostReviews .graph {
+    margin-bottom: 36px;
+}
+
+.hostReviews h3 {
+    margin-top: 0;
+}
+
+.reviewItem {
+    margin-block: 25px;
+}
+
+.reviewItem .reviewStar {
+    color: #ff8c38;
+    margin-right: 5px;
+}
+
+.reviewItem .info {
+    display: flex;
+}
+
+.reviewItem .name {
+    color: #161616;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.reviewItem .date {
+    color: #8c8c8c;
+}
+
+.hostReviews hr {
+    background-color: #c7c7c7;
+    height: 1px;
+    border: 0;
+}
