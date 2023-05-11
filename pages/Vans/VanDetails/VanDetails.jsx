@@ -3,13 +3,13 @@ import {Await, defer, useLoaderData, useLocation, useParams} from "react-router-
 import styles from './VanDetails.module.css';
 import BackLink from "../../../components/BackLink/BackLink";
 import TypeButton from "../../../components/TypeButton/TypeButton";
-import {getVans} from "../../../common/API/api";
+import {getVan} from "../../../common/API/api";
 import {requireAuth} from "../../../common/utils/requireAuth";
 import Loading from "../../../components/Loading/Loading";
 
 export const loader = async ({params, request}) => {
   await requireAuth(request)
-  return defer({van: getVans(params.id)})
+  return defer({van: getVan(params.id)})
 }
 
 const VanDetails = () => {
