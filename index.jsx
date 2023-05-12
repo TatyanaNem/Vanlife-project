@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
-import "./server";
+//import "./server";
 import Vans, {loader as vansLoader} from "./pages/Vans/Vans";
 import VanDetails, {loader as vanDetailsLoader} from "./pages/Vans/VanDetails/VanDetails";
 import Layout from "./components/Layout/Layout";
@@ -28,6 +28,8 @@ import NotFound from "./pages/NotFound/NotFound";
 import Error from "./components/Error/Error";
 import Login, {loader as loginLoader, action as loginAction} from "./pages/Login/Login";
 import {requireAuth} from "./common/utils/requireAuth";
+import Registration, {loader as registrationLoader, action as registrationAction}
+  from "./pages/Registration/Registration";
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -74,13 +76,6 @@ const router = createBrowserRouter(createRoutesFromElements(
     </Route>
     <Route path='about' element={<About/>}/>
     <Route
-      path='login'
-      element={<Login/>}
-      loader={loginLoader}
-      action={loginAction}
-      errorElement={<Error />}
-    />
-    <Route
       path='vans'
       element={<Vans/>}
       errorElement={<Error />}
@@ -91,6 +86,20 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<VanDetails/>}
       errorElement={<Error />}
       loader={vanDetailsLoader}
+    />
+    <Route
+      path='login'
+      element={<Login/>}
+      loader={loginLoader}
+      action={loginAction}
+      errorElement={<Error />}
+    />
+    <Route
+      path='registration'
+      element={<Registration/>}
+      loader={registrationLoader}
+      action={registrationAction}
+      errorElement={<Error />}
     />
     <Route path='*' element={<NotFound />}/>
   </Route>
