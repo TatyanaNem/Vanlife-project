@@ -13,8 +13,9 @@ npm run dev
 
 ## Used technologies
 
-The project is build with Vite and is using React library (for UI) and Firebase Firestore as database. ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)Ihe aim of this project is to understand and to include new features of REACT-ROUTER-DOM v6. ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+The project is build with Vite ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) and is using React library (for UI) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) and Firebase Firestore as database. ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
+The aim of this project is to understand and to include new features of REACT-ROUTER-DOM v6. ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ## Thanks
 
-Want to say special thanks to [Bob Ziroll](https://scrimba.com/links/bobziroll-twitter) and his amazing course [Learn React Router v6](https://scrimba.com/learn/reactrouter6) on [Scrimba](https://scrimba.com/dashboard#overview)![Scrimba](https://img.shields.io/badge/scrimba-2B283A?style=for-the-badge&logo=scrimba&logoColor=white)
+Want to say special thanks to [Bob Ziroll](https://scrimba.com/links/bobziroll-twitter) and his amazing course [Learn React Router v6](https://scrimba.com/learn/reactrouter6) on [Scrimba](https://scrimba.com/dashboard#overview) ![Scrimba](https://img.shields.io/badge/scrimba-2B283A?style=for-the-badge&logo=scrimba&logoColor=white)
