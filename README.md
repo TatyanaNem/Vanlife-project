@@ -1,23 +1,20 @@
-# co8bc40b191eec875ecf00b23
+# Vanlife project
 
-Warning: Vite enforces using jsx syntax inside jsx/tsx files, so it will complain about that. Solution: rename `.js` files to `.jsx` :)
+Vanlife project is a React application that helps users to rent a van for their travel plans. Is written on JavaScript. ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-Quick start:
+## Installation
 
+For quick start please enter this code in your terminal
+
+```bash
+npm install
+npm run dev
 ```
-$ npm install
-$ npm start
-````
 
-Head over to https://vitejs.dev/ to learn more about using vite
-## About Scrimba
+## Used technologies
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+The project is build with Vite and is using React library (for UI) and Firebase Firestore as database. ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)Ihe aim of this project is to understand and to include new features of REACT-ROUTER-DOM v6. ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+## Thanks
 
-Happy Coding!
+Want to say special thanks to [Bob Ziroll](https://scrimba.com/links/bobziroll-twitter) and his amazing course [Learn React Router v6](https://scrimba.com/learn/reactrouter6) on [Scrimba](https://scrimba.com/dashboard#overview)![Scrimba](https://img.shields.io/badge/scrimba-2B283A?style=for-the-badge&logo=scrimba&logoColor=white)
